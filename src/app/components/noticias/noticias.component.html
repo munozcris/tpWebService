@@ -1,0 +1,53 @@
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <h1 class="text-center">Últimas noticias</h1>
+        </div>
+        <div class="form-group col-12">
+          <select name="categoria" id="categoria" class="form-control" [(ngModel)]="categoria">
+              <option value="soccer">Futbol</option>
+              <option value="tennis">Tenis</option>
+              <option value="basketball">Basquet</option>
+              <option value="cricket">Cricket</option>
+          </select>
+          <button type="button" class="btn btn-primary btn-lg align-content-center mt-2"
+              (click)="cargarNoticias()">Aceptar</button>
+          <hr>
+        </div>
+      </div>
+      <div *ngIf="bandera">
+        <content class="col-md-9">
+          <div class="row row-cols-1 row-cols-md-2">
+            <div class="col mb-4 col-md-6">
+              <img [src]="noticias[0].img" class="card-img-top" alt="...">
+              <div class="card-body row">
+                <p class="badge badge-danger col-12">{{noticias[0].tit}}</p>
+                <h5 class="card-title col-12">{{noticias[0].des}}</h5>
+              </div>
+            </div>
+            <div class="col mb-4 col-md-6">
+                <img [src]="noticias[1].img" class="card-img-top" alt="...">
+                <div class="card-body row">
+                  <p class="badge badge-danger col-12">{{noticias[1].tit}}</p>
+                  <h5 class="card-title col-12">{{noticias[1].des}}</h5>
+                </div>
+            </div>
+            <div class="col mb-4 col-md-6">
+                <img [src]="noticias[2].img" class="card-img-top" alt="...">
+                <div class="card-body row">
+                  <p class="badge badge-danger col-12">{{noticias[2].tit}}</p>
+                  <h5 class="card-title col-12">{{noticias[2].des}}</h5>
+                </div>
+            </div>
+            <div class=" col mb-4 col-md-6">
+                <img [src]="noticias[8].img" class="card-img-top" alt="...">
+                <div class="card-body row">
+                  <p class="badge badge-danger col-12">{{noticias[8].tit}}</p>
+                  <h5 class="card-title col-12">{{noticias[8].des}}</h5>
+                </div>
+            </div>
+          </div>
+        </content>
+      </div>
+    </div>

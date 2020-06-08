@@ -1,0 +1,56 @@
+<div class="container">
+    <div>
+        <h1 class="text-center">Estadisticas Coronavirus</h1>
+        <form>
+            <div class="form-group">
+              <label for="lista">Pais</label>
+              <select id="lista" name="lista" class="form-control" [(ngModel)]="nombrePais">
+                <option value="argentina">Argentina</option>
+                <option value="usa">Estados Unidos</option>
+                <option value="spain">España</option>
+                <option value="italy">Italia</option>
+                <option value="germany">Alemania</option>
+              </select>
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" name="confirmados" id="ch-casos" [(ngModel)]="confirmados">
+              <label class="form-check-label" for="ch-casos">Casos confirmados</label>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" name="curados" id="ch-curados" [(ngModel)]="recuperados">
+                <label class="form-check-label" for="ch-curados">Curados</label>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" name="fallecidos" id="ch-fallecidos" [(ngModel)]="fallecidos">
+                <label class="form-check-label" for="ch-fallecidos">Fallecidos</label>
+            </div>
+            <button type="button" class="btn btn-primary"  (click)="obtenerDatosPais()">Enviar</button>
+          </form>
+    </div>
+
+    <table class="table table-striped mt-2" [mfData]="paises" #mf="mfDataTable" [mfRowsOnPage]="5">
+      <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col"><mfDefaultSorter by="fallecidos">Fallecidos</mfDefaultSorter></th>
+            <th scope="col"><mfDefaultSorter by="confirmados">Confirmados</mfDefaultSorter></th>
+            <th scope="col"><mfDefaultSorter by="recuperados">Recuperados</mfDefaultSorter></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let asis of mf.data">
+            <td class="text-left"><img [src]="'/assets/img/' + asis.bandera" class="img-band">  {{asis.nombre}}</td>
+            <td>{{asis.fallecidos}}</td>
+            <td>{{asis.confirmados}}</td>
+            <td>{{asis.recuperados}}</td>
+          </tr>
+      </tbody>
+      <tfoot>
+          <tr>
+              <td colspan="4">
+                  <mfBootstrapPaginator [rowsOnPageSet]="[5,10,20]"></mfBootstrapPaginator>
+              </td>
+          </tr>
+      </tfoot>
+  </table>   
+</div>

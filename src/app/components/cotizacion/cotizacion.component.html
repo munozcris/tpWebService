@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row">
+    <content class="col-md-8 d-none d-md-block">
+        <h3 class="text-center bg-info">Conversor de Divisas</h3>
+        <table class="table table-striped" [mfData]="monedas" #mf="mfDataTable" [mfRowsOnPage]="5">
+          <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th ><img [src]="'/assets/img/'+monedas[0].nombre+'.png'" class="imagen-band"> USD</th>
+                <th ><img [src]="'/assets/img/'+monedas[1].nombre+'.png'" class="imagen-band"> EUR</th>
+                <th ><img [src]="'/assets/img/'+monedas[2].nombre+'.png'" class="imagen-band"> GBP</th>
+                <th ><img [src]="'/assets/img/'+monedas[3].nombre+'.png'" class="imagen-band"> ARS</th>                  
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let item of mf.data">
+                  <td ><img class="imagen-band" [src]="'/assets/img/'+item.nombre+'.png'"></td>
+                  <th scope="row">{{item.nombre}}</th>
+                  <td>{{item.valor1}}</td>
+                  <td>{{item.valor2}}</td>
+                  <td>{{item.valor3}}</td>
+                  <td>{{item.valor4}}</td>
+              </tr>
+          </tbody>
+          <tfoot>
+              <tr>
+                  <td colspan="4">
+                      <mfBootstrapPaginator [rowsOnPageSet]="[5,10,20]"></mfBootstrapPaginator>
+                  </td>
+              </tr>
+          </tfoot>
+      </table>
+          
+    </content>
+    <aside class="col-md-4 col-sm-12 form-pers">
+        <form class="">
+            <h3 class="text-white text-center">Convertidor De Divisas</h3>
+            <hr class="border-white">
+            <div class="form-group">
+              <label class="text-white"  for="cantidad"> Cantidad</label>
+              <input type="number" class="form-control" id="cantidad" placeholder="Cantidad"
+              name="cantidad" [(ngModel)]="monto">
+            </div>
+            <div class="form-group">
+              <label class="text-white" for="inicial">De</label>
+              <select class="form-control" name="inicial" id="inicial" [(ngModel)]="from">
+                <option value="USD">USD Dólares EEUU</option>
+                <option value="EUR">EUR Euros España</option>
+                <option value="GBP">GBP Libras Reino Unido</option>
+                <option value="ARS">ARS Pesos Argentina</option>
+              </select>
+            </div>
+              <div class="form-group">
+                <label class="text-white" for="final">A</label>
+                <select class="form-control" id="final" name="final" [(ngModel)]="to">
+                  <option value="USD">USD Dólares EEUU</option>
+                  <option value="EUR">EUR Euros España</option>
+                  <option value="GBP">GBP Libras Reino Unido</option>
+                  <option value="ARS">ARS Pesos Argentina</option>
+                </select>
+                <br>
+                <input class="form-control" name="total" readonly [(ngModel)]="tot">
+            </div>
+            <button type="submit" class="btn btn-warning btn-block mb-2" name="btnCambio" (click)="cambioD()">Convertir</button>
+          </form>
+      </aside>
+    </div>
+</div>

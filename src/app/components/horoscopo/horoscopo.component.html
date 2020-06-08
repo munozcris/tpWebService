@@ -1,0 +1,129 @@
+<div class="container">
+  <section class="tabla-hor mt-3 row">
+    <h1 class="mb-2 col-12 text-success"><em>Los Signos del Zodiaco</em></h1>
+    <p class="col-12">(Seleccione su signo)</p>
+    <div class="col-md-4 col-sm-6 mb-2">
+      <a class="row" (click)="cargarSignos(0)">
+        <img class="col-5" src="/assets/img/Aries.jpg">
+        <div class="col-7 align-self-center" >
+          <p class=" media media-body alert alert-success text-center" role="alert">Aries</p>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-6 mb-2">
+      <a class="row" (click)="cargarSignos(1)">
+      <img class="col-5" src="/assets/img/Leo.jpg">
+      <div class="col-7 align-self-center" >
+        <p class=" media media-body alert alert-success text-center" role="alert">Leo</p>
+      </div>
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-6 mb-2">
+      <a class="row" (click)="cargarSignos(2)">
+      <img class="col-5" src="/assets/img/Sagittarius.jpg">
+      <div class="col-7 align-self-center" >
+        <p class=" media media-body alert alert-success text-center" role="alert">Sagitario</p>
+      </div>
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-6 mb-2">
+      <a class="row" (click)="cargarSignos(3)">
+      <img class="col-5" src="/assets/img/Taurus.jpg">
+      <div class="col-7 align-self-center" >
+        <p class="media media-body alert alert-success text-center" role="alert">Tauro</p>
+      </div>
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-6 mb-2">
+      <a class="row" (click)="cargarSignos(4)">
+      <img class="col-5" src="/assets/img/Virgo.jpg">
+      <div class="col-7 align-self-center" >
+        <p class=" media media-body alert alert-success text-center" role="alert">Virgo</p>
+      </div>
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-6 mb-2">
+      <a class="row" (click)="cargarSignos(5)">
+      <img class="col-5" src="/assets/img/Capricorn.jpg">
+      <div class="col-7 align-self-center" >
+        <p class=" media media-body alert alert-success text-center" role="alert">Capricornio</p>
+      </div>
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-6 mb-2">
+      <a class="row" (click)="cargarSignos(6)">
+      <img class="col-5" src="/assets/img/Gemini.jpg">
+      <div class="col-7 align-self-center" >
+        <p class=" media media-body alert alert-success text-center" role="alert">Géminis</p>
+      </div>
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-6 mb-2">
+      <a class="row" (click)="cargarSignos(7)">
+      <img class="col-5" src="/assets/img/Libra.jpg">
+      <div class="col-7 align-self-center" >
+        <p class=" media media-body alert alert-success text-center" role="alert">Libra</p>
+      </div>
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-6 mb-2">
+      <a class="row" (click)="cargarSignos(8)">
+      <img class="col-5" src="/assets/img/Aquarius.jpg">
+      <div class="col-7 align-self-center" >
+        <p class=" media media-body alert alert-success text-center" role="alert">Aquario</p>
+      </div>
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-6 mb-2">
+      <a class="row" (click)="cargarSignos(9)">
+      <img class="col-5" src="/assets/img/Cancer.jpg">
+      <div class="col-7 align-self-center" >
+        <p class="media media-body alert alert-success text-center" role="alert">Cancer</p>
+      </div>
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-6 mb-2">
+      <a class="row" (click)="cargarSignos(10)">
+      <img class="col-5" src="/assets/img/Scorpio.jpg">
+      <div class="col-7 align-self-center" >
+        <p class=" media media-body alert alert-success text-center" role="alert">Escorpio</p>
+      </div>
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-6 mb-2" >
+      <a class="row" (click)="cargarSignos(11)">
+      <img class="col-5" src="/assets/img/Pisces.jpg">
+      <div class="col-7 align-self-center" >
+        <p class=" media media-body alert alert-success text-center" role="alert">Piscis</p>
+      </div>
+      </a>
+    </div>
+  </section>
+  <section class="row">
+    <div class="card col-12 mt-2" *ngIf="horoscopo !=''">
+      <h2 class="card-header bg-success text-white">{{nombre}} - Dia</h2>
+      <div class="card-body row">
+        <div class="col-8">
+          <h5 class="card-title text-secondary">{{nombre}}</h5>
+          <p class="card-text">{{horoscopo}}</p>  
+        </div>
+        <div class="col-4">
+          <img [src]="'/assets/img/'+nombre+'.jpg'" class="img-pers">
+        </div>
+      </div>
+    </div>
+    <div class="card col-12 mt-2" *ngIf="horoscopoMes!=''">
+      <h2 class="card-header bg-success text-white">{{nombre}} - Mes</h2>
+      <div class="card-body row">
+        <div class="col-8">
+          <h5 class="card-title text-secondary">{{nombre}}</h5>
+          <p class="card-text">{{horoscopoMes}}</p>  
+        </div>
+        <div class="col-4">
+          <img [src]="'/assets/img/'+nombre+'.jpg'" class="img-pers">
+        </div>
+      </div>
+    </div>
+
+      </section>
+</div>
